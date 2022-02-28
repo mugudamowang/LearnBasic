@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .father{
+            border: 2px solid green;
+            /* overflow: hidden; */
+        }
+        .son {
+            width: 100px;
+            background-color: #0030a6;
+            float: left;
+        }
+
+        .a {
+            border: 1px solid blue;
+            margin-bottom: -2000px;
+            padding-bottom: 2000px;
+        }
+    </style>
+
+</head>
+
+<body>
+    <div class="father">
+        <div class="son">
+            <span>
+                1.拉长padding-bottom
+                2.利用margin-bottom负值调整子元素到父元素底部的距离, 使得父元素高度等于最高的那一列
+                3.使用overflow:hidden, 隐藏多余的部分(绿线下面那些), 足够大才能实现撑开.
+            </span></div>
+        <div class="son a">
+            <span>绿线下面不可视</span>
+        </div>
+        <div class="son a">绿线下面不可视</div>
+
+        <div style="clear:both"></div>
+    </div>
+
+</body>
+<script src="../public.js"></script>
+
+</html>

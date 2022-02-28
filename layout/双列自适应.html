@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Basic</title>
+    <style>
+        *{margin: 0;padding: 0;color: white; text-align: center;}
+        .container{
+            display: flex;
+            /* justify-content: center;    //水平居中(左右对齐) */
+            /* align-items: center;        //垂直居中(上下对齐) */
+        }
+        aside {
+            width: 100px;
+            height: 50px;
+            background: black;
+        }
+        main{
+            background: #0030a6;
+            outline: red 1px solid;
+            margin: auto;
+            height: 50vh;
+            flex: 1;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <aside id="left">left</aside>
+        <main>main</main>
+        <aside id="right">right</aside>
+    </div>
+
+</body>
+<script src="../public.js"></script>
+
+</html>

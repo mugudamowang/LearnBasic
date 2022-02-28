@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <canvas id="canvas" width="500px" height="500px" style="border: 1px solid red;"></canvas>
+</body>
+<script>
+    let canvas = document.getElementById('canvas');
+    let ctx = canvas.getContext('2d');
+
+    // //路径控制:
+    // ctx.beginPath();
+    // ctx.moveTo(100, 100); //起始点默认在(0,0), 移动到指定x,y.
+    // ctx.lineTo(200, 200); //从上一个点移动到这个点并划线
+    // ctx.lineTo(100, 200);
+
+    // //线形控制:
+    // ctx.lineWidth = 3; //线条粗细
+    // ctx.lineCap = 'round'; //线条末端 butt矩形, square方格, round圆形(默认)
+    // ctx.lineJoin = 'miter'; //交点(拐点)的形状 round扇形, bevel三角形底边, miter菱形(默认)
+    // ctx.setLineDash([15, 10]); //设置虚线[线段长度, 间隔]
+
+    // //绘制矩形
+    // ctx.rect(50, 25, 25, 50); //(x, y, width, height) x,y左上角
+
+    // ctx.fill();
+    // ctx.fillRect(10, 10, 100, 100);
+
+    // //上色才可视:
+    // ctx.fillStyle = 'yellow'
+    // ctx.fill() //对起始点形成的封闭区间着色
+    // ctx.strokeStyle = 'red';
+    // ctx.stroke() //对线条着色
+
+    //模拟重力动画: 
+    var vx = 10;
+    var vy = -10;
+    var gravity = 0.98;
+    var posX = 20;
+    var posY = 100;
+
+    setInterval(function () {
+        if (posX == canvas.width) {
+            posX = 20;
+            posY = 100;
+            vx = 10;
+            vy = -10;
+        }
+
+        //绘制背景
+        ctx.fillStyle = 'black';
+        ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+        //位移
+        posX += vx;
+        posY += vy;
+        vy += gravity;
+
+        //绘制
+        ctx.beginPath();
+        ctx.fillStyle = 'white';
+
+        // 绘制抛物线: x, y, radius, startAngle, endAngle, anticlockwise
+        // arc()方法的x和y参数是圆心坐标，radius是半径，
+        //startAngle和endAngle则是扇形的起始角度和终止角度（以弧度表示）， Math.PI*2即圆
+        //anticlockwise表示做图时应该逆时针画（true）还是顺时针画（false），这个参数用来控制扇形的方向（比如上半圆还是下半圆）。
+        ctx.arc(posX, posY, 10, 0, Math.PI * 2, true);
+
+        //闭合路径, 如果图形已经封闭，或者只有一个点，那么此方法不会产生任何效果。
+        // ctx.closePath();
+
+        //上色
+        ctx.fill();
+    }, 16);
+</script>
+<script src="../public.js"></script>
+
+
+</html>

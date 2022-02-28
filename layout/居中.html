@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #container {
+            outline: 1px red solid;
+            position: relative;
+            height: 500px;
+            /* display: flex;
+            justify-content: center;
+            align-items: center; */
+
+        }
+
+        .redDiv {
+            width: 100px;
+            height: 100px;
+            background-color: red;
+            /* vertical-align: middle; */
+            /* position: absolute;
+            margin: auto;
+            top: 0;
+            bottom: 0;
+            left: 0;
+            right: 0; */
+
+            display: table-cell;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="container">
+        <div class="redDiv">text-algin</div>
+    </div>
+    <xmp>
+        1. 父相子绝-居中方案:
+        .redDiv {
+            text-algin: center //文字水平居中
+            position: absolute;
+            margin: auto;
+            top: 0;
+            bottom: 0;
+            left: 0;
+            right: 0;
+        }
+        2. flex布局居中方案:       
+        #container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        3.
+    </xmp>
+</body>
+<script src="../public.js"></script>
+
+</html>
